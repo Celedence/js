@@ -3,7 +3,7 @@
 // get digit helper functions
 
 function getDigit(num,i) {
-    return Math.floor(Math.abs.(num) / Math.pow(10, i)) % 10;
+    return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
 }
 
 function digitCount(num) {
@@ -18,3 +18,20 @@ function mostDigits(nums) {
     }
     return maxDigits;
 }
+
+function radixSort(nums) {
+    let maxDigitCount = mostDigits(nums);
+    for(let k = 0; k < maxDigitCount; k++){
+        let digitBuckets = Array.from({length: 10}, () => []);
+        for(let i = 0; i < nums.length; i++){
+            let digit = getDigit(nums[i],k);
+            digitBuckets[digit].push(nums[i]);
+        }
+        console.log(digitBuckets);
+        nums = [].concat(...digitBuckets);
+        console.log(nums);
+    }
+    return nums;
+}
+
+radixSort([23,5,11,45,3,498798])
