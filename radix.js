@@ -35,3 +35,5 @@ function radixSort(nums) {
 }
 
 radixSort([23,5,11,45,3,498798])
+
+// big O - O(nk) n is the length of array, k is the number of digits(the word size)
