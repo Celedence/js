@@ -40,4 +40,49 @@ class DoublyLinkedList{
         this.length --;
         return poppedNode;
     }
+    shift(){
+        if(!this.head) return undefined;
+        var oldHead = this.head;
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.head = this.oldHead.next;
+            this.head.prev = null;
+            oldHead.next = null;
+        }
+        this.length--;
+        return this;
+    }
+    unshift(val){
+        var newHead = new Node(val);
+        if(!this.head){
+            this.head = newHead;
+            this.tail = newHead;
+        } else {
+            this.head.prev = newHead;
+            newHead.next = this.head;
+            this.head = newHead;
+        }
+        this.length++;
+        return this;
+    }
+    get(index){
+        if(index < 0 || index >= index.length) return null;
+        if(index <= this.lenght/2){
+            var count = 0;
+            var counter = this.head;
+            while(count !== index){
+                current = current.next;
+                count++;
+            }
+        } else {
+            var count = 0;
+            var counter = this.tail;
+            while(count !== index){
+                currnet = current.prev;
+                count--;
+        }
+        return current;
+    }
 }
