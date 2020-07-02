@@ -10,6 +10,7 @@ class Queue {
     constructor(){
         this.first = null;
         this.last = null;
+        this.size = 0;
     }
     enqueue(val){
         var newNode = new Node(val);
