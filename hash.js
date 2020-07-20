@@ -76,3 +76,8 @@ class HashTable {
 
 let ht = new HashTable();
 ht.set("hello world","goodbye");
+
+//using for each to get all values;
+ht.keys().forEach(function(key){
+    console.log(ht.get(key));
+});
