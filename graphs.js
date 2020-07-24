@@ -25,7 +25,7 @@ class Graph {
         }
         delete this.adjacencyList[vertex];
     }
-    DFS(vertex){
+    DFSRecursive(vertex){
         const result = [];
         const visited = {};
         const adjacencyList = this.adjacencyList;
@@ -42,6 +42,46 @@ class Graph {
 
         })(start);
 
+        return result;
+    }
+    DFSIterative(start){
+        var stack = [start];
+        var result = [];
+        var visited = {};
+        let currentVertex;
+
+        visited[start] = true;
+        while(stack.length){
+            currentVertex = stack.pop();
+            result.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if(!visited[neighbor]){
+                    visited[neighbor] = true;
+                    stack.push(neighbor);
+                }
+            });
+        }
+        return result;
+    }
+    breadthFirst(start){
+        const queue = [];
+        const result = [];
+        const visited = {};
+        let currentVertex;
+        visisted[start];
+
+        while(queue.length){
+            currentVertex = queue.shift();
+            result.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if(!visited[neighbor]){
+                    visited[neighbor];
+                    queue.push(neighbor);
+                }
+            });
+        }
         return result;
     }
 }
